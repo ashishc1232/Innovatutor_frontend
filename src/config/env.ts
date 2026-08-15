@@ -15,8 +15,8 @@ function required(name: string, fallback?: string): string {
 export const env = {
   port: parseInt(required("PORT", "5000"), 10),
   nodeEnv: required("NODE_ENV", "development"),
-  clientUrl: required("CLIENT_URL", "https://innovatutor.vercel.app"),
-
+  clientUrl: required("CLIENT_URL", "http://innovatutor.vercel.app"),
+  localClientUrl: required("LOCAL_CLIENT_URL", "http://localhost:3000"),
   mongodbUri: required("MONGODB_URI", ""),
 
   jwtSecret: required("JWT_SECRET", ""),
