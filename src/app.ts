@@ -8,9 +8,12 @@ import v1Routes from "./routes/v1";
 
 export function createApp(): Application {
   const app = express();
-
+  const allowedOrigins = [
+    env.clientUrl,
+    env.localClientUrl,
+  ];
   app.use(helmet());
-  app.use(cors({ origin: env.clientUrl, credentials: true }));
+  app.use(cors({ origin: allowedOrigins, credentials: true }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use(morgan(env.nodeEnv === "production" ? "combined" : "dev"));
